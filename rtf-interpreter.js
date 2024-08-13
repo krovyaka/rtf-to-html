@@ -70,6 +70,7 @@ class RTFInterpreter extends Writable {
       let hexstr = this.hexStore.map(cmd => cmd.value).join('')
       this.group.addContent(new RTFSpan({
         value: iconv.decode(
+          // Buffer.from(hexstr, 'hex'), 'UTF-8')
           Buffer.from(hexstr, 'hex'), this.group.get('charset'))
       }))
       this.hexStore.splice(0)
